@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>MDC - Quiz</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet" href="/mdc/style.css">
+        <script src="/mdc/questions.js" defer></script>
+        <script src="/mdc/quiz.js" defer></script>
+        <style>
+            .quiz-card {
+                display: flex;
+                flex-direction: column;
+                align-items: left;
+                justify-content: center;
+                background-color: var(--lightest-navy);
+                border-radius: 15px;
+                width: 100%;
+                padding-top: 20px;
+                padding-bottom: 40px;
+            }
+
+            #question-number {
+                font-size: 2rem;
+                font-weight: 600;
+                color: var(--green);
+                margin-left: 40px;
+            }
+
+            #question {
+                font-size: 1.5rem;
+                font-weight: 500;
+                color: var(--light-slate);
+            }
+
+            #options {
+                margin-left: 60px;
+            }
+
+            #prev {
+                margin-top: 20px;
+                margin-left: 40px;
+            }
+
+            .submitted-details {
+                background-color: var(--navy-shadow);
+                margin: 80px;
+                padding: 20px;
+                border-radius: 6px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1 align="center">Welcome to the Quiz, <span id="name"></span>!</h1>
+        <p align="center">attempt the quiz below to confirm your course selection</p>
+
+        <div class="quiz-card" id="quiz-card">
+            <form id="quiz">
+                <div id="questions">
+                </div>
+                <button id="prev" onclick="prevQuestion()" type="button" disabled>Prev</button>
+                <button id="next" onclick="nextQuestion()" type="button">Next</button>
+                <br>
+                <button id="submit" type="button" onclick="quizSubmit()">Submit</button>
+            </form>
+            <div class="submitted-details" id="submitted-details" style="display: none;">
+                <p>Course selection submitted with the following details!</p>
+                <ul id="details" style="list-style-type: none;">
+                </ul>
+            </div>
+        </div>
+    </body>
+
+</html>

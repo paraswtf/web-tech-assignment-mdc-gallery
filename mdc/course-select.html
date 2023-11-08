@@ -16,7 +16,7 @@
 
     <body>
         <h1 align="center">Course Selection</h1>
-        <form onsubmit="formSubmitted(this)">
+        <form onsubmit="return formSubmitted(this)" action="/mdc/quiz.html" method="get">
             Enter your PRN: <input type="text" name="prn" id="prn" /><br>
             Enter your Name: <input type="text" name="name" id="name" /><br>
             Enter your College Email: <input type="text" name="email" id="email" /><br>

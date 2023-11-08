@@ -29,15 +29,36 @@ function formSubmitted(form) {
 		course: form.elements["mdc"].value
 	};
 
-	const confirmation = confirm(`Are you sure you want to submit the form?
-    You have entered the following details:
-    PRN: ${data.prn}
-    Name: ${data.name}
-    Email: ${data.email}
-    Institute: ${data.institute}
-    Course: ${data.course}`);
-
-	if (confirmation) {
-		window;
+	if (!data.prn || isNaN(data.prn) || data.prn.length != 11) {
+		alert("Please enter a valid PRN");
+		return false;
 	}
+
+	if (!data.name) {
+		alert("Please enter your name");
+		return false;
+	}
+
+	if (!data.email || !data.email.includes("@")) {
+		alert("Please enter a valid email");
+		return false;
+	}
+
+	if (!data.institute) {
+		alert("Please select your institute");
+		return false;
+	}
+
+	if (!data.course) {
+		alert("Please select a course");
+		return false;
+	}
+
+	return confirm(`Are you sure you want to submit the form?
+    You have entered the following details:
+        PRN: ${data.prn}
+        Name: ${data.name}
+        Email: ${data.email}
+        Institute: ${data.institute}
+        Course: ${data.course}`);
 }
