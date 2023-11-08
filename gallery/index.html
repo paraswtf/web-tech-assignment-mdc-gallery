@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Image Gallery</title>
+        <link rel="stylesheet" href="./style.css">
+        <script src="./script.js" defer></script>
+    </head>
+
+    <body>
+        <h1 align="center">Editable Image Gallery</h1>
+        <section class="carousel" aria-label="Gallery">
+            <ol class="carousel__viewport" id="carousel__viewport">
+                <li id="carousel__slide1" tabindex="0" class="carousel__slide">
+                    <img src="" alt="" class="carousel__image" id="image1">
+                    <div class="carousel__snapper">
+                        <a href="#carousel__slide4" class="carousel__prev">Go to last slide</a>
+                        <a href="#carousel__slide2" class="carousel__next">Go to next slide</a>
+                    </div>
+                </li>
+            </ol>
+            <aside class="carousel__navigation">
+                <ol class="carousel__navigation-list" id="carousel__navigation-list">
+                    <li class="carousel__navigation-item">
+                        <a href="#carousel__slide1" class="carousel__navigation-button">Go to slide 1</a>
+                    </li>
+                </ol>
+            </aside>
+        </section>
+        <section id="configuration">
+            <h1>Configuration</h1>
+            <form id="image__accept__form" onsubmit="save(this)" onreset="resetForm(this)">
+                Select number of images: <input type="number" onchange="updateImageForm(this)" value="1" min="1"
+                    name="count" id="count" />
+                <p>Image Sources</p>
+                <ol id="image-inputs" class="image-inputs" type="1">
+                    <li class="image-input">
+                        <input type="text" placeholder="Image 1 src" onchange="updateImage(this)" name="1" />
+                    </li>
+                </ol>
+                <input type="reset" value="Reset" id="reset" />
+                <input type="submit" value="Save" id="submit" /><label for="submit">
+                    <span class="asterisk-text">*Saving will store data to local
+                        storage and make it persist even if browser refreshes.</span>
+                </label>
+            </form>
+        </section>
+        <button id="edit" onclick="edit()" style="display: none;">Edit</button>
+    </body>
+
+</html>
