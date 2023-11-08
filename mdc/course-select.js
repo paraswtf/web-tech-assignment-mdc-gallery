@@ -36,4 +36,8 @@ function formSubmitted(form) {
     Email: ${data.email}
     Institute: ${data.institute}
     Course: ${data.course}`);
+
+	if (confirmation) {
+		window;
+	}
 }
