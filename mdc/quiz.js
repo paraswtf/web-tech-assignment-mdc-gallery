@@ -10,6 +10,7 @@ const questionsAttempted = [];
 
 const questionsElement = document.getElementById("questions");
 
+//Add random questions to the page using JS
 for (let i = 1; i <= randomizedQuestions.length; i++) {
 	questionsElement.innerHTML += `
                     <section id="question-${i}" ${i === 1 ? "" : 'style="display:none;"'}>
@@ -76,6 +77,7 @@ function quizSubmit() {
 		});
 	});
 
+	//Make the submission details visible
 	document.getElementById("submitted-details").style.display = "unset";
 	const details = document.getElementById("details");
 	details.innerHTML = "";
@@ -88,6 +90,7 @@ function quizSubmit() {
 		mdc: urlParams.get("mdc"),
 		score
 	};
+
 	for (const key in data) {
 		details.innerHTML += `<li><p>${key}: ${data[key]}</p></li>`;
 	}
