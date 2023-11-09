@@ -52,6 +52,9 @@ function nextQuestion() {
 }
 
 function quizSubmit() {
+	//Check if all questions are answered
+	if (document.querySelectorAll("input[type=radio][checked=true]").length !== randomizedQuestions.length) return alert("Please answer all questions before submitting!");
+
 	document.getElementById("submit").style.display = "none";
 	document.getElementById("prev").style.display = "none";
 	document.getElementById("next").style.display = "none";
