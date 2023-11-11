@@ -51,9 +51,18 @@ function nextQuestion() {
 	if (currentQuestion === randomizedQuestions.length) document.getElementById("submit").style.display = "unset";
 }
 
+//To count the number of checked radios (querySelectorAll with checked=true didn't work)
+function countCheckedRadios(radios) {
+	let count = 0;
+	radios.forEach((r) => {
+		if (r.checked) count++;
+	});
+	return count;
+}
+
 function quizSubmit() {
 	//Check if all questions are answered
-	if (document.querySelectorAll("input[type=radio][checked=true]").length !== randomizedQuestions.length) return alert("Please answer all questions before submitting!");
+	if (countCheckedRadios(document.querySelectorAll("input[type=radio]")) !== randomizedQuestions.length) return alert("Please answer all questions before submitting!");
 
 	document.getElementById("submit").style.display = "none";
 	document.getElementById("prev").style.display = "none";
